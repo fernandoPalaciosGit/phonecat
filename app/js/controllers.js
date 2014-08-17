@@ -1,11 +1,18 @@
 'use strict';
 
 /* Controllers */
+var PhoneListCtrl = function($scope){
+	$scope.phones = [
+		{	name: 'nexusS',
+			snippet: 'el mas rapido de los Nexus'},
+		{	name: 'motorola XOOM con Wi-Fi',
+			snippet: 'la siguiente generacion de tabletas'},
+		{	name: 'motorolla XOOM',
+			snippet: 'la siguiente generacion de tabletas'}
+	];
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope', function($scope) {
+	$scope.totalPhones = $scope.phones.length;
+};
 
-  }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
-
-  }]);
+angular.module('phoneApp.controllers', [])
+  .controller('PhoneListCtrl', ['$scope', PhoneListCtrl]);

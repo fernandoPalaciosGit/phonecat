@@ -1,0 +1,25 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.28
+4 verbose node symlink C:\nodejs\\node.exe
+5 verbose run-script [ 'prestart', 'start', 'poststart' ]
+6 info prestart angular-seed@0.0.0
+7 verbose unsafe-perm in lifecycle true
+8 error Error: spawn ENOENT
+8 error     at errnoException (child_process.js:998:11)
+8 error     at Process.ChildProcess._handle.onexit (child_process.js:789:34)
+9 error If you need help, you may report this *entire* log,
+9 error including the npm and node versions, at:
+9 error     <http://github.com/npm/npm/issues>
+10 error System Windows_NT 6.2.9200
+11 error command "C:\\nodejs\\\\node.exe" "C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+12 error cwd D:\htdocs\LAST\phonecats
+13 error node -v v0.10.28
+14 error npm -v 1.4.9
+15 error syscall spawn
+16 error code ENOENT
+17 error errno ENOENT
+18 verbose exit [ 1, true ]

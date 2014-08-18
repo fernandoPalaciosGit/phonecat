@@ -18,16 +18,14 @@ var PhoneListControler = function($ctx, $ajax){
 
 var PhoneDetailControler = function($ctx, $ajax, $urlParams){
 	$ctx.phoneSelected = {
-		phoneId : $urlParams.phoneId,
+		phoneUrl : 'phones/'+$urlParams.phoneId+'.json',
 		phoneData : {} 
 	};
 
-	$ajax.get('phones/phones.json').
+	$ajax.get($ctx.phoneSelected.phoneUrl).
 		success(function(data){
 			// devolvemos el articulo que coincida con el $routeParams
-			$ctx.phoneSelected.phoneData = data.filter( function(elm, index) {
-				return elm.id === $ctx.phoneSelected.phoneId;
-			})[0];
+			$ctx.phoneSelected.phoneData = data;
 		}).
 		error(function(error){
 			console.info(error);

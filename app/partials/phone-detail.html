@@ -1,9 +1,35 @@
+<!-- <pre>{{ phoneSelected.phoneData | json }}</pre> -->
 <div  class="contaner-fluid">
 	<div class="row-fluid">
 
-		<div class="col-md-12">
-			<strong>Artculo seleccionado</strong><br/>
-			<pre>{{ phoneSelected.phoneData | json }}</pre>
+		<div class="col-md-4">
+			<h3>{{phoneSelected.phoneData.name}}</h3><br/>
+			<img ng-src="{{phoneSelected.phoneData.images[0]}}" class="phone">
+		</div>
+
+		<div class="col-md-8">
+			<p>{{phoneSelected.phoneData.description}}</p>
+
+			<ul class="phone-thumbs list-inline">
+			  <li ng-repeat="img in phoneSelected.phoneData.images" class="thumbnail">
+			    <img ng-src="{{img}}" style="width: 150px;">
+			  </li>
+			</ul>
+
+			<ul class="specs">
+			  <li>
+			    <span>Availability and Networks</span>
+			    <dl>
+			      <dt>Availability</dt>
+			      <dd ng-repeat="availability in phoneSelected.phoneData.availability">{{availability}}</dd>
+			    </dl>
+			  </li>
+			    ...
+			  <li>
+			    <span>Additional Features</span>
+			    <dd>{{phoneSelected.phoneData.additionalFeatures}}</dd>
+			  </li>
+			</ul>
 		</div>
 
 	</div>

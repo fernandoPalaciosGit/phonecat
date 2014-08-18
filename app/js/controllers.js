@@ -18,18 +18,24 @@ var PhoneListControler = function($ctx, $ajax){
 
 var PhoneDetailControler = function($ctx, $ajax, $urlParams){
 	$ctx.phoneSelected = {
-		phoneUrl : 'phones/'+$urlParams.phoneId+'.json',
-		phoneData : {} 
+		url : 'phones/'+$urlParams.phoneId+'.json',
+		mainImage : '',
+		data : {} 
 	};
 
-	$ajax.get($ctx.phoneSelected.phoneUrl).
+	$ajax.get($ctx.phoneSelected.url).
 		success(function(data){
 			// devolvemos el articulo que coincida con el $routeParams
-			$ctx.phoneSelected.phoneData = data;
+			$ctx.phoneSelected.data = data;
+			$ctx.phoneSelected.mainImage = data.images[0];
 		}).
 		error(function(error){
 			console.info(error);
 		});
+
+	$ctx.setMainImage = function (imageUrl){
+		$ctx.phoneSelected.mainImage = imageUrl;
+	};
 
 };
 

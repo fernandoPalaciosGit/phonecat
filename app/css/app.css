@@ -2,3 +2,10 @@
 .specs dd{
 	display: inline;
 }
+.phone-thumbs img{
+	width: 150px;
+	cursor: pointer;
+}
+img.phone{
+	width: 100%;
+}

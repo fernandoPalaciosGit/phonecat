@@ -1,18 +1,20 @@
-<!-- <pre>{{ phoneSelected.phoneData | json }}</pre> -->
+
+	<pre>{{ phoneSelected.data | json }}</pre>
 <div  class="contaner-fluid">
 	<div class="row-fluid">
 
 		<div class="col-md-4">
-			<h3>{{phoneSelected.phoneData.name}}</h3><br/>
-			<img ng-src="{{phoneSelected.phoneData.images[0]}}" class="phone">
+			<h3>{{phoneSelected.data.name}}</h3><br/>
+			<img ng-src="{{phoneSelected.mainImage}}" class="phone">
 		</div>
 
 		<div class="col-md-8">
-			<p>{{phoneSelected.phoneData.description}}</p>
+			<p>{{phoneSelected.data.description}}</p>
 
 			<ul class="phone-thumbs list-inline">
-			  <li ng-repeat="img in phoneSelected.phoneData.images" class="thumbnail">
-			    <img ng-src="{{img}}" style="width: 150px;">
+			  <li ng-repeat="img in phoneSelected.data.images" class="thumbnail">
+			    <img ng-src="{{img}}"
+			    		ng-click="setMainImage(img)">
 			  </li>
 			</ul>
 
@@ -20,28 +22,28 @@
 			  <li>
 			    <dl>
 			      <dt>Availability and Networks</dt>
-			      	<dd ng-repeat="availability in phoneSelected.phoneData.availability">{{availability}}</dd>
+			      	<dd ng-repeat="availability in phoneSelected.data.availability">{{availability}}</dd>
 			    </dl>
 			  </li>
 			    
 			  <li>
 			  	<dl>
 					<dt>Additional Features</dt>
-						<dd>{{phoneSelected.phoneData.additionalFeatures}}</dd>
+						<dd>{{phoneSelected.data.additionalFeatures}}</dd>
 			  	</dl>
 			  </li>
 
-			  <li>Infrared <span>{{phoneSelected.phoneData.connectivity.infrared | checkmark}}</span></li>
+			  <li>Infrared <span>{{phoneSelected.data.connectivity.infrared | checkmark}}</span></li>
 
-			  <li>GPS <span>{{phoneSelected.phoneData.connectivity.gps | checkmark}}</span></li>
+			  <li>GPS <span>{{phoneSelected.data.connectivity.gps | checkmark}}</span></li>
 
-			  <li>touchScreen <span>{{phoneSelected.phoneData.display.touchScreen | checkmark }}</span></li>
+			  <li>touchScreen <span>{{phoneSelected.data.display.touchScreen | checkmark }}</span></li>
 
-			  <li>accelerometer <span>{{phoneSelected.phoneData.hardware.accelerometer | checkmark }}</span></li>
+			  <li>accelerometer <span>{{phoneSelected.data.hardware.accelerometer | checkmark }}</span></li>
 
-			  <li>physicalKeyboard <span>{{phoneSelected.phoneData.hardware.physicalKeyboard | checkmark }}</span></li>
+			  <li>physicalKeyboard <span>{{phoneSelected.data.hardware.physicalKeyboard | checkmark }}</span></li>
 
-			  <li>fmRadio <span>{{phoneSelected.phoneData.hardware.fmRadio | checkmark }}</span></li>
+			  <li>fmRadio <span>{{phoneSelected.data.hardware.fmRadio | checkmark }}</span></li>
 			</ul>
 		</div>
 

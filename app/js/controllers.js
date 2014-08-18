@@ -1,37 +1,24 @@
 'use strict';
 
-/* 'PhoneListCtrl' Controller : servicios por parametros*/
-var PhoneListControler = function($ctx, $ajax){
-  //peticion ajax a Json
-	$ajax.get('phones/phones.json').
-		success(function(data){
-			$ctx.phones = data;
-		}).
-		error(function(error){
-			console.info(error);
-		});
-	
-  //valores predeterminados de filtros de ordenacion 'orderBy'
+var PhoneListControler = function($ctx, $ajax, phoneRest){
+	//API RESTfull
+	$ctx.phones = phoneRest.getAllPhones();
+
+   //valores predeterminados de filtros de ordenacion 'orderBy'
 	$ctx.reverse = -1;
 	$ctx.orderProp = 'age';
 };
 
-var PhoneDetailControler = function($ctx, $ajax, $urlParams){
+var PhoneDetailControler = function($ctx, $ajax, $urlParams, phoneRest){
 	$ctx.phoneSelected = {
-		url : 'phones/'+$urlParams.phoneId+'.json',
 		mainImage : '',
 		data : {} 
 	};
 
-	$ajax.get($ctx.phoneSelected.url).
-		success(function(data){
-			// devolvemos el articulo que coincida con el $routeParams
-			$ctx.phoneSelected.data = data;
-			$ctx.phoneSelected.mainImage = data.images[0];
-		}).
-		error(function(error){
-			console.info(error);
-		});
+	//API RESTfull
+	$ctx.phoneSelected.data = phoneRest.get( {phoneId: $urlParams.phoneId}, function (data){
+		$ctx.phoneSelected.mainImage = data.images[0];
+	});
 
 	$ctx.setMainImage = function (imageUrl){
 		$ctx.phoneSelected.mainImage = imageUrl;
@@ -45,5 +32,5 @@ angular.module('phoneApp.controllers', []).
 	controller('PhoneDetailCtrl', PhoneDetailControler);
 
 //injecion de dependencias (servicios de angular)
-PhoneListControler.$inject = ['$scope', '$http'];
-PhoneDetailControler.$inject = ['$scope', '$http', '$routeParams'];
+PhoneListControler.$inject = ['$scope', '$http', 'PhoneRestFullFact'];
+PhoneDetailControler.$inject = ['$scope', '$http', '$routeParams', 'PhoneRestFullFact'];

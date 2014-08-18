@@ -3,15 +3,20 @@
 /* Controllers */
 var PhoneListCtrl = function($scope){
 	$scope.phones = [
-		{	name: 'nexusS',
-			snippet: 'el mas rapido de los Nexus'},
-		{	name: 'motorola XOOM con Wi-Fi',
-			snippet: 'la siguiente generacion de tabletas'},
-		{	name: 'motorola XOOM',
-			snippet: 'la siguiente generacion de tabletas'}
-	];
+    {'name': 'Nexus S',
+     'snippet': 'Fast just got faster with Nexus S.',
+     'age': 1},
+    {'name': 'Motorola XOOM™ with Wi-Fi',
+     'snippet': 'The Next, Next Generation tablet.',
+     'age': 3},
+    {'name': 'MOTOROLA XOOM™',
+     'snippet': 'The Next, Next Generation tablet.',
+     'age': 2}
+  ];
 
-	$scope.totalPhones = $scope.phones.length;
+  //valores predeterminados de ordenacion
+	$scope.reverse = -1;
+	$scope.orderProp = 'age';
 };
 
 angular.module('phoneApp.controllers', [])

@@ -20,14 +20,28 @@
     <div class="row-fluid">
       
       <div class="col-md-2">
-        Search: <input type="search" ng-model="query">
+        <p>
+          <span>Busqueda</span> : 
+          <input type="search" ng-model="query">
+        </p>
+        <p>
+          <span>Ordenar por</span> : 
+          <select name="" id="" ng-model="orderProp">
+            <option value="" selected="selected" disabled="disabled"></option>
+            <option value="age">Más nuevo</option>
+            <option value="name">Alfabeticamente</option>
+          </select>
+        </p>
+        <p><a href="" ng-click=" reverse = !reverse ">invertir</a></p>
       </div>
+  
+
 
       <div class="col-md-10">
         <ul class="phones">
-          <li ng-repeat="phone in phones | filter:query">
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp:reverse">
             {{phone.name}}
-            <p>{{phone.snippet}}</p>
+            <p>{{phone.snippet}} : hace {{phone.age}} años.</p>
           </li>
         </ul>
       </div>

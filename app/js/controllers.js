@@ -7,7 +7,7 @@ var PhoneListCtrl = function($scope){
 			snippet: 'el mas rapido de los Nexus'},
 		{	name: 'motorola XOOM con Wi-Fi',
 			snippet: 'la siguiente generacion de tabletas'},
-		{	name: 'motorolla XOOM',
+		{	name: 'motorola XOOM',
 			snippet: 'la siguiente generacion de tabletas'}
 	];
 

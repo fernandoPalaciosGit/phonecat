@@ -4,6 +4,7 @@ node_modules/
 app/bower_components/
 app/img/
 test/
+*.log
 tmp
 .DS_Store
 .idea

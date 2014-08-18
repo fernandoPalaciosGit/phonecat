@@ -8,7 +8,8 @@ window.angular.
 		'phoneApp.filters',
 		'phoneApp.services',
 		'phoneApp.directives',
-		'phoneApp.controllers'
+		'phoneApp.controllers',
+		'phoneApp.animations'
 	]).
 //configuracion de vistas (solo se tiene acceso al $rootProvider desde el config)
 	config(['$routeProvider', function($routeProvider){

@@ -22,7 +22,7 @@
     <div class="col-md-10">
       <ul class="phones">
         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp:reverse"
-            class="row thumbnail">
+            class="row thumbnail phone-listing">
             <div class="col-md-2">
               <a href="#/phones/{{phone.id}}">
                 <img ng-src="{{phone.imageUrl}}" style="width: 150px;"/>

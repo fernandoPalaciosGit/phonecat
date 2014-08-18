@@ -10,10 +10,11 @@
 		<div class="col-md-8">
 			<p>{{phoneSelected.data.description}}</p>
 
-			<ul class="phone-thumbs list-inline">
+			<ul class="phone-thumbs list-inline phone-images">
 			  <li ng-repeat="img in phoneSelected.data.images" class="thumbnail">
 			    <img ng-src="{{img}}"
-			    		ng-click="setMainImage(img)">
+			    		ng-click="setMainImage(img)"
+			    		ng-class="{active: phoneSelected.mainImage == img}">
 			  </li>
 			</ul>
 

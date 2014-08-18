@@ -16,9 +16,30 @@ var PhoneListControler = function($ctx, $ajax){
 	$ctx.orderProp = 'age';
 };
 
+var PhoneDetailControler = function($ctx, $ajax, $urlParams){
+	$ctx.phoneSelected = {
+		phoneId : $urlParams.phoneId,
+		phoneData : {} 
+	};
+
+	$ajax.get('phones/phones.json').
+		success(function(data){
+			// devolvemos el articulo que coincida con el $routeParams
+			$ctx.phoneSelected.phoneData = data.filter( function(elm, index) {
+				return elm.id === $ctx.phoneSelected.phoneId;
+			})[0];
+		}).
+		error(function(error){
+			console.info(error);
+		});
+
+};
+
 // funcion del controlador PhoneListCtrl
 angular.module('phoneApp.controllers', []).
-	controller('PhoneListCtrl', PhoneListControler);
+	controller('PhoneListCtrl', PhoneListControler).
+	controller('PhoneDetailCtrl', PhoneDetailControler);
 
 //injecion de dependencias (servicios de angular)
 PhoneListControler.$inject = ['$scope', '$http'];
+PhoneDetailControler.$inject = ['$scope', '$http', '$routeParams'];

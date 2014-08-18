@@ -1,0 +1,46 @@
+<div  class="contaner-fluid">
+  <div class="row-fluid">
+    
+    <div class="col-md-2">
+      <p>
+        <span>Busqueda</span> : 
+        <input type="search" ng-model="query">
+      </p>
+      <p>
+        <span>Ordenar por</span> : 
+        <select name="" id="" ng-model="orderProp">
+          <option value="" selected="selected" disabled="disabled"></option>
+          <option value="age">Más nuevo</option>
+          <option value="name">Alfabeticamente</option>
+        </select>
+      </p>
+      <p><a href="" ng-click=" reverse = !reverse ">invertir</a></p>
+    </div>
+
+
+
+    <div class="col-md-10">
+      <ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp:reverse"
+            class="row thumbnail">
+            <div class="col-md-2">
+              <a href="#/phones/{{phone.id}}">
+                <img ng-src="{{phone.imageUrl}}" style="width: 150px;"/>
+              </a>
+            </div>
+            
+            <div class="col-md-10">
+              <a href="#/phones/{{phone.id}}">
+                <span class="phoneName">{{phone.name}}</span>
+                <span ng-show=" !!phone.carrier "><small> [ {{phone.carrier}} ] </small></span>
+              </a> <br/>
+              <span class="phoneSnippet">{{phone.snippet}}.</span> <br/>
+              <small>[ hace <span class="phoneAgo">{{phone.age}}</span> años ]</small>
+            </div>
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

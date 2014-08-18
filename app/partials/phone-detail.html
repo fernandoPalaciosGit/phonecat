@@ -18,17 +18,30 @@
 
 			<ul class="specs">
 			  <li>
-			    <span>Availability and Networks</span>
 			    <dl>
-			      <dt>Availability</dt>
-			      <dd ng-repeat="availability in phoneSelected.phoneData.availability">{{availability}}</dd>
+			      <dt>Availability and Networks</dt>
+			      	<dd ng-repeat="availability in phoneSelected.phoneData.availability">{{availability}}</dd>
 			    </dl>
 			  </li>
-			    ...
+			    
 			  <li>
-			    <span>Additional Features</span>
-			    <dd>{{phoneSelected.phoneData.additionalFeatures}}</dd>
+			  	<dl>
+					<dt>Additional Features</dt>
+						<dd>{{phoneSelected.phoneData.additionalFeatures}}</dd>
+			  	</dl>
 			  </li>
+
+			  <li>Infrared <span>{{phoneSelected.phoneData.connectivity.infrared | checkmark}}</span></li>
+
+			  <li>GPS <span>{{phoneSelected.phoneData.connectivity.gps | checkmark}}</span></li>
+
+			  <li>touchScreen <span>{{phoneSelected.phoneData.display.touchScreen | checkmark }}</span></li>
+
+			  <li>accelerometer <span>{{phoneSelected.phoneData.hardware.accelerometer | checkmark }}</span></li>
+
+			  <li>physicalKeyboard <span>{{phoneSelected.phoneData.hardware.physicalKeyboard | checkmark }}</span></li>
+
+			  <li>fmRadio <span>{{phoneSelected.phoneData.hardware.fmRadio | checkmark }}</span></li>
 			</ul>
 		</div>
 

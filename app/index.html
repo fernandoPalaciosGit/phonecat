@@ -10,12 +10,13 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="css/app.css"/>
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body ng-controller="PhoneListCtrl">
-  
+
   <div  class="contaner-fluid">
     <div class="row-fluid">
       
@@ -39,22 +40,26 @@
 
       <div class="col-md-10">
         <ul class="phones">
-          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp:reverse">
-            {{phone.name}}
-            <p>{{phone.snippet}} : hace {{phone.age}} años.</p>
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp:reverse"
+              class="thumbnail">
+              <a href="#/phones/{{phone.id}}">
+                <img ng-src="{{phone.imageUrl}}">
+              </a>
+              <a href="#/phones/{{phone.id}}">
+                <span class="phoneName">{{phone.name}}</span>
+                <span ng-show=" !!phone.carrier "><small> [ {{phone.carrier}} ] </small></span>
+              </a>
+
+            <p>
+              <span class="phoneSnippet">{{phone.snippet}}.</span> <br/>
+              <small>[ hace <span class="phoneAgo">{{phone.age}}</span> años ]</small>
+            </p>
           </li>
         </ul>
       </div>
 
     </div>
   </div>
-
-  <hr>
-  <footer>
-    <p>selecionde los priimeros 5 telefonos de peticion</p>
-    <pre>{{ parsePhones | json }}</pre>
-  </footer>
-
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

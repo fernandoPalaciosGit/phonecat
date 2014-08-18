@@ -6,7 +6,6 @@ var PhoneListControler = function($ctx, $ajax){
 	$ajax.get('phones/phones.json').
 		success(function(data){
 			$ctx.phones = data;
-			$ctx.parsePhones = data.splice(0, 5);
 		}).
 		error(function(error){
 			console.info(error);

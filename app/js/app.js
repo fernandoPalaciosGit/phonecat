@@ -1,7 +1,7 @@
 'use strict';
 
 
-// Declare app level module which depends on filters, and services
+// declarar el modulo de nuestra aplicacion en varios niveles de dependencias
 angular.module('phoneApp', [
   'ngRoute',
   'phoneApp.filters',
@@ -9,9 +9,3 @@ angular.module('phoneApp', [
   'phoneApp.directives',
   'phoneApp.controllers'
 ]);
-// .
-// config(['$routeProvider', function($routeProvider) {
-//   $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-//   $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-//   $routeProvider.otherwise({redirectTo: '/view1'});
-// }]);

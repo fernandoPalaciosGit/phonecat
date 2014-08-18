@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="css/app.css"/>
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
-<body>
-  <div  class="contaner-fluid"
-        ng-controller="PhoneListCtrl">
+<body ng-controller="PhoneListCtrl">
+  
+  <div  class="contaner-fluid">
     <div class="row-fluid">
       
       <div class="col-md-2">
@@ -48,6 +48,12 @@
 
     </div>
   </div>
+
+  <hr>
+  <footer>
+    <p>selecionde los priimeros 5 telefonos de peticion</p>
+    <pre>{{ parsePhones | json }}</pre>
+  </footer>
 
 
   <!--[if lt IE 7]>

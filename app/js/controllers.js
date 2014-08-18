@@ -1,23 +1,25 @@
 'use strict';
 
-/* Controllers */
-var PhoneListCtrl = function($scope){
-	$scope.phones = [
-    {'name': 'Nexus S',
-     'snippet': 'Fast just got faster with Nexus S.',
-     'age': 1},
-    {'name': 'Motorola XOOM™ with Wi-Fi',
-     'snippet': 'The Next, Next Generation tablet.',
-     'age': 3},
-    {'name': 'MOTOROLA XOOM™',
-     'snippet': 'The Next, Next Generation tablet.',
-     'age': 2}
-  ];
-
-  //valores predeterminados de ordenacion
-	$scope.reverse = -1;
-	$scope.orderProp = 'age';
+/* 'PhoneListCtrl' Controller : servicios por parametros*/
+var PhoneListControler = function($ctx, $ajax){
+  //peticion ajax a Json
+	$ajax.get('phones/phones.json').
+		success(function(data){
+			$ctx.phones = data;
+			$ctx.parsePhones = data.splice(0, 5);
+		}).
+		error(function(error){
+			console.info(error);
+		});
+	
+  //valores predeterminados de filtros de ordenacion 'orderBy'
+	$ctx.reverse = -1;
+	$ctx.orderProp = 'age';
 };
 
-angular.module('phoneApp.controllers', [])
-  .controller('PhoneListCtrl', ['$scope', PhoneListCtrl]);
+// funcion del controlador PhoneListCtrl
+angular.module('phoneApp.controllers', []).
+	controller('PhoneListCtrl', PhoneListControler);
+
+//injecion de dependencias (servicios de angular)
+PhoneListControler.$inject = ['$scope', '$http'];
